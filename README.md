@@ -44,7 +44,26 @@ class Main{
         }
     }
 }
-```
+***
+# Algorithm for Binary Search: 
+1. Begin.
+2. Set arr[] = {1,2, .....} or you can explicitely create a dynamic array.
+3. Set lower = 0, upper = arr.length -1 , found = 0, mid = -1
+4. Take user input key for searching
+5. Generate a loop: while(lower <= upper)
+6. Set mid = (lower + upper) / 2
+7. if(arr[mid] == key) then set found = 1 then break
+8. if(arr[mid] < key) then
+   set lower = mid + 1
+   else
+   set upper = mid - 1
+9. if found = 1, then print "Item found " with location = mid
+    else
+   print "Item not found"
+10. Exit
+***
+
+
 
 # Linear Search:
 
