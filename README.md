@@ -5,7 +5,6 @@ class Main{
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
-
         System.out.println("How many array size: ");
         int size = Integer.valueOf(sc.nextLine());
         System.out.println("Enter "+size+" different numbers: ");
@@ -18,13 +17,11 @@ class Main{
         System.out.println("Enter the searching elemnts: ");
         int item = Integer.valueOf(sc.nextLine());
         int lower = 0, upper = arr.length-1, found = 0, mid = -1;
-        
         while(lower <= upper)
         {
             mid = (lower + upper) / 2;
             if(arr[mid] == item)
             {
-
                 found++;
                 break;
             }
@@ -43,6 +40,4 @@ class Main{
         }
     }
 }
-
-
 ***
