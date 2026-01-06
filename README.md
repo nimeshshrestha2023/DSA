@@ -1,5 +1,5 @@
 # Linear Search: 
-'''
+```
 
 import java.util.Scanner;
 class Main{
@@ -44,5 +44,5 @@ class Main{
         }
     }
 }
-'''
+
 
