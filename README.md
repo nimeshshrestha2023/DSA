@@ -1,4 +1,4 @@
-# Linear Search: 
+# Binary Search: 
 ```
 
 import java.util.Scanner;
@@ -44,5 +44,50 @@ class Main{
         }
     }
 }
+```
+
+# Linear Search:
+
+```
+import java.util.Scanner;
+class Main{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("How many array size: ");
+        int size = Integer.valueOf(sc.nextLine());
+        System.out.println("Enter "+size+" different numbers: ");
+        int[] arr = new int[size];
+        for(int i=0;i<size;i++)
+        {
+            System.out.println("Number: "+(i+1));
+            arr[i] = Integer.valueOf(sc.nextLine());
+        }
+        System.out.println("Enter the searching elemnts: ");
+        int item = Integer.valueOf(sc.nextLine());
+        
+        int i = 0;
+        while(i<arr.length)
+        {
+            if(arr[i] == item)
+            {
+                System.out.println("Element found at index: "+i);
+                break;
+            }
+            i++;
+            
+        }
+        if(i>=arr.length)
+        {
+            System.out.println("Items not found: ");
+        }
+       
+    }
+    
+}
+
+```
+
 
 
