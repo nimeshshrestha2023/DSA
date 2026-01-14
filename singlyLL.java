@@ -104,6 +104,46 @@ class singlyLinkedList {
         }
 
     }
+       // delete any position
+   public void deleteAnyPosition(int pos) {
+    if (pos < 0) {
+        System.out.println("Invalid position");
+        return;
+    }
+
+    // Empty list
+    if (head == null) {
+        System.out.println("List is empty");
+        return;
+    }
+
+    // Delete head
+    if (pos == 0) {
+        Node temp = head;
+        head = head.next;
+        temp.next = null;
+
+        System.out.println("Deleted successfully");
+        return;
+    }
+
+    Node temp = head;
+    for (int i = 0; i < pos - 1; i++) {
+        if (temp.next == null) {
+            System.out.println("Position out of range");
+            return;
+        }
+        temp = temp.next;
+    }
+
+    Node temp1 = temp.next;
+    temp.next = temp1.next;
+    temp1.next = null;
+
+   
+
+    System.out.println("Deleted successfully");
+}
 
     // Add element in any position
 
