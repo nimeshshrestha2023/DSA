@@ -175,10 +175,13 @@ class doublyLinkedList{
         {
             System.out.println(head.data +" deleted: ");
             head = tail = null;
+            return;
         }
 
         Node temp = head;
         head = head.next;
+        // head.prev = null;
+        // temp.next = null;
         if(head != null)
         {
             temp.next = null;
@@ -204,6 +207,8 @@ class doublyLinkedList{
 
         Node temp = tail;
         tail = tail.prev;
+        //tail.next = null;
+        //temp.prev = null;
         if(tail != null)
         {
             tail.next = null;
