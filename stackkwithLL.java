@@ -1,72 +1,80 @@
-
-public class stackkwithLL {
-
-    public static void main(String[] args) {
-
-        Stack stk = new Stack();
-
-        stk.push(5);
-        stk.push(55);
-        stk.push(35);
-        stk.push(25);
-
-        stk.peek();
-        stk.pop();
-        stk.peek();
-
-        stk.display();
-    }
-}
-
-class Node {
+class stackkwithll{
+    
+static class Node{
     int data;
     Node next;
-
-    public Node(int val) {
-        data = val;
+    public Node(int data)
+    {
+        this.data = data;
         next = null;
     }
 }
 
-class Stack {
-    Node top;
-
-    public Stack() {
+static class Stack{
+    public Node top;
+    public Stack()
+    {
         top = null;
     }
-
-    // push
-    public void push(int val) {
-        Node newNode = new Node(val);
+    
+    // Empty case: 
+    public boolean isEmpty()
+    {
+        return top == null;
+    }
+    //push
+    public void push(int data)
+    {
+        Node newNode = new Node(data);
+        if(isEmpty() == true)
+        {
+            top = newNode;
+            return;
+        }
         newNode.next = top;
         top = newNode;
     }
-
-    // pop
-    public void pop() {
-        if (top == null) {
-            System.out.println("Underflow");
-            return;
+    
+    //pop
+    public  int pop()
+    {
+        if(isEmpty() == true)
+        {
+            System.out.println("Underflow: ");
+            return -1;
         }
+        int peek = top.data;
         top = top.next;
+        return peek;
     }
-
+    
+    
     // peek
-    public void peek() {
-        if (top == null) {
-            System.out.println("Underflow");
-            return;
+    public int peek()
+    {
+         if(isEmpty() == true)
+        {
+            System.out.println("Underflow: ");
+            return -1;
         }
-        System.out.println("Top element: " + top.data);
+        return top.data;
+        
     }
-
-    // display stack
-    public void display() {
-        Node temp = top;
-        while (temp != null) {
-            System.out.print(temp.data + " -> ");
-            temp = temp.next;
+    
+    
+}
+public static void main(String[] args)
+    {
+        Stack s = new Stack();
+        s.push(10);
+        s.push(20);
+        s.push(30);
+        s.push(40);
+        
+        while(!s.isEmpty())
+        {
+            System.out.println(s.peek());
+            s.pop();
         }
-        System.out.println("null");
     }
 }
