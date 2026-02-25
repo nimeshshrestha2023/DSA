@@ -109,6 +109,7 @@ class doublyLinkedList{
 
         newNode.next = temp.next;
         newNode.prev = temp;
+        temp.next.prev = newNode;
         temp.next = newNode;
 
         // Common Logic: 
@@ -117,6 +118,46 @@ class doublyLinkedList{
         // head.next = newNode;
         // newNode.prev = head;
 
+    }
+
+    //Insert at any position: (Alternative)
+    public void addAnyPosition(int data, int pos)
+    {
+        if(pos<0)
+        {
+            System.out.println("Invalid Position: ");
+            return;
+        }
+        if(pos == 0)
+        {
+        addToHead(data);
+        return;
+        }
+        Node temp = head;
+        int index = 0;
+        while(temp != null && index < pos-1)
+        {
+            temp = temp.next;
+            index++;
+        }
+        // if position is beyond list size
+        if(temp == null)
+        {
+            System.out.println("Position out of range: ");
+            return;
+        }
+        // if inserted at tail
+        if(temp.next == null)
+        {
+            addToTail(data);
+            return;
+        }
+        Node newNode = new Node(data);
+        newNode.next = temp.next;
+        newNode.prev = temp;
+        
+        temp.next.prev = newNode;
+        temp.next = newNode;
     }
 
     // delete Head
@@ -134,10 +175,13 @@ class doublyLinkedList{
         {
             System.out.println(head.data +" deleted: ");
             head = tail = null;
+            return;
         }
 
         Node temp = head;
         head = head.next;
+        // head.prev = null;
+        // temp.next = null;
         if(head != null)
         {
             temp.next = null;
@@ -163,6 +207,8 @@ class doublyLinkedList{
 
         Node temp = tail;
         tail = tail.prev;
+        //tail.next = null;
+        //temp.prev = null;
         if(tail != null)
         {
             tail.next = null;

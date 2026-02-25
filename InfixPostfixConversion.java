@@ -111,8 +111,8 @@ class InfixPostfixConversion {
 
                 while (!stack.isEmpty()
                         && isOperator(stack.peek())
-                        && (precedence(stack.peek()) > precedence(ch)
-                        || precedence(stack.peek()) == precedence(ch))) {
+                        && (precedence(stack.peek()) >= precedence(ch)))
+                {
 
                     postfix += stack.pop();
                 }
