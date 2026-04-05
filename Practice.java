@@ -2,7 +2,7 @@ public class Practice{
 	public static void main(String[] args)
 	{
 		circularLL ll = new circularLL();
-
+ 
 		ll.addtoHead(5);
 		ll.addtoHead(10);
 
