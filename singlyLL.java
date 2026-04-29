@@ -227,3 +227,159 @@ class singlyLinkedList {
     }
 
 }
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    public class Main{
+    public static void main(String[] args){
+        SinglyLL sll = new SinglyLL();
+        
+        sll.insertHead(25);
+        sll.insertHead(15);
+        sll.insertHead(5);
+        
+        sll.insertAnyPosition(1,0);
+        
+        sll.deleteHead();
+        sll.deleteTail();
+        
+        sll.deleteAnyPosition(1);
+        
+        sll.display();
+    }
+}
+
+
+class Node{
+    int data;
+    Node next;
+    public Node(int val){
+        data = val;
+        next = null;
+    }
+}
+
+class SinglyLL{
+    Node head, tail;
+    public SinglyLL(){
+        head = tail = null;
+    }
+    
+    public boolean isEmpty(){
+        return head == null;
+    }
+    
+    public void insertHead(int val){
+        Node newNode = new Node(val);
+        if(isEmpty()){
+            head = tail = newNode;
+            return;
+        }
+        newNode.next = head;
+        head = newNode;
+    }
+    
+    public void insertTail(int val){
+        Node newNode = new Node(val);
+        if(isEmpty()){
+            head = tail = newNode;
+            return;
+        }
+        tail.next = newNode;
+        tail = newNode;
+    }
+    
+    public void insertAnyPosition(int data, int pos){
+        Node newNode = new Node(data);
+        if(pos < 0){
+            System.out.println("Invalid Position");
+            return;
+        }
+        
+        if(pos == 0){
+            insertHead(data);
+            return;
+        }
+        if(isEmpty()){
+            head = tail = newNode;
+            return;
+        }
+        
+        Node temp = head;
+        for(int i=0;i<pos-1;i++){
+            if(temp == null){
+                System.out.println("Position out of range: ");
+                return;
+            }
+            temp = temp.next;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+    
+    public void deleteHead(){
+        if(isEmpty()){
+            System.out.println("List is empty: ");
+            return;
+        }
+        Node temp = head;
+        head = head.next;
+        
+        temp.next = null; // optional
+    }
+    
+    public void deleteTail(){
+        if(isEmpty()){
+            System.out.println("List is empty: ");
+            return;
+        }
+        
+        Node temp = head;
+        while(temp.next != tail){
+            if(temp == null){
+                System.out.println("Position out of range: ");
+                return;
+            }
+            temp = temp.next;
+        }
+        temp.next = null;
+        tail = temp;
+    }
+    
+    public void deleteAnyPosition(int pos){
+        if(pos < 0){
+         System.out.println("Invalid Position!");
+         return;
+        }
+        if(isEmpty()){
+            System.out.println("List is empty: ");
+            return;
+        }
+        
+        if(pos == 0){
+            deleteHead();
+            return;
+        }
+        Node temp =  head;
+        for(int i=0;i<pos-1;i++){
+            if(temp == null){
+                System.out.println("Position out of range: ");
+                return;
+            }
+            temp = temp.next;
+        }
+        Node temp1= temp.next;
+        temp.next = temp1.next;
+    }
+    
+    public void display(){
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.data+"<--->");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+}
